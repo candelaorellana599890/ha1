@@ -87,8 +87,15 @@ class CalculatorTest {
 
         assertEquals(expected, actual);
     }
+@Test
+@DisplayName("should change the sign from positive to negative")
+    void firstGreenTest() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressNegativeKey();
 
+        assertEquals("-1",calc.readScreen());
+}
 
-    //TODO hier weitere Tests erstellen
 }
 
