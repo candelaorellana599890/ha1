@@ -96,6 +96,28 @@ class CalculatorTest {
 
         assertEquals("-1",calc.readScreen());
 }
+@Test
+    @DisplayName("should not exist a -0")
+    void firstRedTest() {
+        Calculator calc = new Calculator();
 
+        calc.pressNegativeKey();
+
+        assertEquals("0" , calc.readScreen());
+}
+
+@Test
+    @DisplayName("the clearkey should not clear all saved digitkeys.")
+    void secondRedTest() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(1);
+        calc.pressClearKey();
+        calc.pressDigitKey(2);
+        calc.pressEqualsKey();
+
+        assertEquals("3", calc.readScreen());
+}
 }
 
