@@ -13,6 +13,7 @@ public class Calculator {
     private double latestValue;
 
     private String latestOperation = "";
+    private boolean clearkey = false;
 
     /**
      * @return den aktuellen Bildschirminhalt als String
@@ -45,9 +46,20 @@ public class Calculator {
      * im Ursprungszustand ist.
      */
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+        //screen = "0";
+        //latestOperation = "";
+        //latestValue = 0.0;
+
+        if (!clearkey) {
+            screen = "0";
+            clearkey = true;
+        } else {
+            screen = "0";
+            latestOperation = "";
+            latestValue = 0.0;
+            clearkey =false;
+
+        }
     }
 
     /**
@@ -105,7 +117,11 @@ public class Calculator {
      * entfernt und der Inhalt fortan als positiv interpretiert.
      */
     public void pressNegativeKey() {
-        screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+        //screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
+    if (screen.equals("0")) {
+        return;
+    }
+    screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     }
 
     /**
