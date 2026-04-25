@@ -2,7 +2,7 @@ package htw.berlin.prog2.ha1;
 
 /**
  * Eine Klasse, die das Verhalten des Online Taschenrechners imitiert, welcher auf
- * https://www.online-calculator.com/ aufgerufen werden kann (ohne die Memory-Funktionen)
+ *  ....https://www.online-calculator...com/ aufgerufen werden kann (ohne die Memory-Funktionen)
  * und dessen Bildschirm bis zu zehn Ziffern plus einem Dezimaltrennzeichen darstellen kann.
  * Enthält mit Absicht noch diverse Bugs oder unvollständige Funktionen.
  */
@@ -37,13 +37,20 @@ public class Calculator {
         screen = screen + digit;
     }
 
+    // /**
+    // * Empfängt den Befehl der C- bzw. CE-Taste (Clear bzw. Clear Entry).
+    // * Einmaliges Drücken der Taste löscht die zuvor eingegebenen Ziffern auf dem Bildschirm
+    // * so dass "0" angezeigt wird, jedoch ohne zuvor zwischengespeicherte Werte zu löschen.
+    // * Wird daraufhin noch einmal die Taste gedrückt, dann werden auch zwischengespeicherte
+    // * Werte sowie der aktuelle Operationsmodus zurückgesetzt, so dass der Rechner wieder
+    // * im Ursprungszustand ist.
+    // */
+
+
     /**
-     * Empfängt den Befehl der C- bzw. CE-Taste (Clear bzw. Clear Entry).
-     * Einmaliges Drücken der Taste löscht die zuvor eingegebenen Ziffern auf dem Bildschirm
-     * so dass "0" angezeigt wird, jedoch ohne zuvor zwischengespeicherte Werte zu löschen.
-     * Wird daraufhin noch einmal die Taste gedrückt, dann werden auch zwischengespeicherte
-     * Werte sowie der aktuelle Operationsmodus zurückgesetzt, so dass der Rechner wieder
-     * im Ursprungszustand ist.
+     * Clears the display.
+     * First press = only the display is reset to "0"
+     * Second press = everything is reset. no more values saved.
      */
     public void pressClearKey() {
         //screen = "0";
@@ -109,13 +116,21 @@ public class Calculator {
         if(!screen.contains(".")) screen = screen + ".";
     }
 
+   // /**
+   //  * Empfängt den Befehl der gedrückten Vorzeichenumkehrstaste ("+/-").
+   //  * Zeigt der Bildschirm einen positiven Wert an, so wird ein "-" links angehängt, der Bildschirm
+   //  * aktualisiert und die Inhalt fortan als negativ interpretiert.
+   //  * Zeigt der Bildschirm bereits einen negativen Wert mit führendem Minus an, dann wird dieses
+   //  * entfernt und der Inhalt fortan als positiv interpretiert.
+     //*/
+
     /**
-     * Empfängt den Befehl der gedrückten Vorzeichenumkehrstaste ("+/-").
-     * Zeigt der Bildschirm einen positiven Wert an, so wird ein "-" links angehängt, der Bildschirm
-     * aktualisiert und die Inhalt fortan als negativ interpretiert.
-     * Zeigt der Bildschirm bereits einen negativen Wert mit führendem Minus an, dann wird dieses
-     * entfernt und der Inhalt fortan als positiv interpretiert.
+     * if the number is positive, a minus sign comes to the front
+     * If the number is negative, the minus sign will be removed.
+     * if the display shows 0, the value remains. no changes
      */
+
+
     public void pressNegativeKey() {
         //screen = screen.startsWith("-") ? screen.substring(1) : "-" + screen;
     if (screen.equals("0")) {
