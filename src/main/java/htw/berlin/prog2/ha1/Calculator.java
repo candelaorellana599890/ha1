@@ -21,7 +21,7 @@ public class Calculator {
     public String readScreen() {
         return screen;
     }
-
+// internet
     /**
      * Empfängt den Wert einer gedrückten Zifferntaste. Da man nur eine Taste auf einmal
      * drücken kann muss der Wert positiv und einstellig sein und zwischen 0 und 9 liegen.
